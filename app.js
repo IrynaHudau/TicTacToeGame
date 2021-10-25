@@ -1,3 +1,16 @@
+//const elementToResize = document.getElementById('container');
+// const heightOutput =  elementToResize.parentElement.clientWidth;
+// const widthOutput =  elementToResize.parentElement.clientHeight;
+
+// function reportWindowSize() {
+//     console.log('resized');
+//   heightOutput.textContent = window.innerHeight;
+//   widthOutput.textContent = window.innerWidth;
+// }
+
+// window.onresize = reportWindowSize;
+// window.addEventListener('resize', reportWindowSize);
+
 const playerX = 'x';
 const playerZero = 'circle';
 const winnCombination = [
@@ -12,27 +25,25 @@ const winnCombination = [
 ];
 let currPlayersTurn;
 
-//Select Which you play
-const startingCard = document.querySelector(".startingPage");
+const startingCard = document.querySelector(".starting-page");
 const choose = document.querySelectorAll(".choose");
-const gameCard = document.querySelector(".gameCard");
-const endGameWinnerCard = document.querySelector(".endGameWinner");
-const endGameDrawCard = document.querySelector(".endGameDraw");
+const gameCard = document.querySelector(".game-page");
+const endGameCard = document.querySelector(".end-game-page");
+const endGameWinnerText = document.querySelector(".winner-text");
+const endGameDrawText = document.querySelector(".draw-text");
 const cellElemenst = document.querySelectorAll('[data-cell]');
 const board = document.getElementById('board');
-//const endGameMessageElement = document.getElementById('endGameMessage');
 const endGameMessageTextElement = document.querySelector('[data-endgame-message-text]');
-const restartGameButton1 = document.getElementById('restartButtonWinner');
-const restartGameButton2 = document.getElementById('restartButtonDraw');
+const restartGameButton = document.getElementById('restart-btn');
 
+
+//Select Which to play
 choose.forEach(currentChoose => {
     currentChoose.addEventListener("click", () => {
-        if(currentChoose.id === "playerX"){
+        if(currentChoose.id === "player-x"){
             currPlayersTurn = false;
-           // console.log(currPlayersTurn);
         }else{
             currPlayersTurn = true;
-            //console.log(currPlayersTurn);
         }
         startingCard.style.display = "none";
         gameCard.style.display = "block";
@@ -41,10 +52,8 @@ choose.forEach(currentChoose => {
 });
 
 const clickOnCellHandler = (event) => {
-    // console.log("click");
     const cellPos = event.target;
     const currenPlayer = currPlayersTurn ?  playerZero : playerX;
-    // console.log(currenPlayer);
     placeMarkOnCell(cellPos, currenPlayer);
     if(checkWinner(currenPlayer)){
         console.log('winner');
@@ -59,17 +68,13 @@ const clickOnCellHandler = (event) => {
 
 const endGame = (draw) => {
     if(draw){
-        // endGameMessageTextElement.innerText = 'Draw!';
-        gameCard.style.display = "none";
-        endGameDrawCard.style.display = "flex";
+        endGameDrawText.style.display = "flex";
     }else{
         endGameMessageTextElement.innerText = `${currPlayersTurn ? "O" : "X"}!`;
-        gameCard.style.display = "none";
-        endGameWinnerCard.style.display = "flex";
+        endGameWinnerText.style.display = "flex";
     }
-    //endGameMessageElement.classList.add('show');
-    //  gameCard.style.display = "none";
-    // endGameCard.style.display = "flex";
+    gameCard.style.display = "none";
+    endGameCard.style.display = "flex";
 };
 
 const isDraw = () => {
@@ -87,14 +92,11 @@ const checkWinner = (currenPlayer) => {
 };
 
 const startGame = () => {
-    //currPlayersTurn = false;
     cellElemenst.forEach(cell => {
         cell.addEventListener('click', clickOnCellHandler, {once:true})
     });
-    
     setBoardHoverNextTurn();
 };
-
 
 const placeMarkOnCell = (cell, currenPlayer) => {
     cell.classList.add(currenPlayer);
@@ -114,11 +116,8 @@ const  setBoardHoverNextTurn = () => {
     }
 };
 
-restartGameButton1.addEventListener('click', () => {
+restartGameButton.addEventListener('click', () => {
     window.location.reload();
 });
 
-restartGameButton2.addEventListener('click', () => {
-    window.location.reload();
-});
 

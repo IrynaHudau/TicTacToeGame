@@ -8,11 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <!-- Starting Card -->
-        <div class="startingPage">
+    <div class="container" id="container">
+        <!-- Starting Page -->
+        <div class="starting-page">
             <div class = "gradient-border">
-                <div class="textH2">
+                <div>
                     <h2>Tic</h2>
                     <h2>Tac</h2>
                     <h2>Toe</h2>
@@ -20,9 +20,9 @@
                 </div>
                 <div>
                     <h4>Selec X or O You Will Play?</h4>
-                    <div class="stroke">
-                        <a id="playerX" class="choose">Player  X </a>
-                        <a id="playerzO" class="choose">Player  O </a>
+                    <div class="gradient-underline">
+                        <a id="player-x" class="choose">Player  X </a>
+                        <a id="player-o" class="choose">Player  O </a>
                     </div>
                     <!-- <div class="playWithComputerMode">
                         <label class="switch switch-left-right">
@@ -35,10 +35,9 @@
                 </div>
             </div>
         </div>
-        <!-- Main Card -->
-        <div class = "gameCard">
-            <!-- <h1>Tic Tac Toe Game</h1> -->
-            <div class = "block">
+        <!-- Main Page -->
+        <div class = "game-page">
+            <div class = "gradient-border-shimmer">
                 <div class="board" id="board">
                     <div class="cell" data-cell></div>
                     <div class="cell" data-cell></div>
@@ -52,39 +51,36 @@
                 </div>    
             </div>
         </div>
-        <!-- End Game Card Winne -->
-        <div class="endGameWinner" id="endGameMessageWinner">
+        <!-- End Game Page -->
+        <div class="end-game-page" id="endGameMessageWinner">
             <div class = "gradient-border">
-                <div class = "textEndGame">
-                    <h2>The</h2>
-                    <h2>Winner</h2>
-                    <h2>is</h2>
-                    <h2>Player</h2>
-                    <div class="colorWinner" data-endgame-message-text></div>
+                <div class = "end-game-text">
+                     <!-- Winner Text -->
+                    <div class="winner-text">
+                        <div>
+                            <h2>The</h2>
+                            <h2>Winner</h2>
+                            <h2>is</h2>
+                            <h2>Player</h2>
+                            <div class="rainbow-text" data-endgame-message-text></div>
+                        </div>      
+                    </div>
+                     <!-- Draw Gamw Text-->
+                    <div class="draw-text">
+                        <div class="rainbow-text">
+                            <h2>Game Over!</h2>
+                            <h2>Both players!</h2>
+                            <h2>win!</h2>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="restartGame">
-                    <div class="stroke">
-                        <a id="restartButtonWinner">Play Again</a>
+                <div class="restart-game">
+                    <div class="gradient-underline">
+                        <a id="restart-btn">Play Again</a>
                     </div>
                 </div>
             
-            </div>
-        </div>
-        <!-- End Game Card Draw -->
-        <div class="endGameDraw" id="endGameMessageDraw">
-            <div class = "gradient-border">
-                <div class = "textEndGame">
-                    <div class="colorWinner">
-                        <h2>Game Over!</h2>
-                        <h2>Both players!</h2>
-                        <h2>win!</h2>
-                    </div>
-                </div>
-                <div class="restartGame">
-                    <div class="stroke">
-                        <a id="restartButtonDraw">Play Again</a>
-                    </div>
-                </div>   
             </div>
         </div>
     </div>

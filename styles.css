@@ -4,10 +4,11 @@
     box-sizing: border-box;
     font-family: Lato, sans-serif;
 }
-
+/* desctop */
 :root{
     --card-width: 440px;
     --card-height:400px;
+    --font-size-game-name: 3rem;
     --border-width: 3px;
     --cell-size: 100px;
     --mark-size: calc(var(--cell-size) * .9);
@@ -17,21 +18,19 @@ body{
     display: grid;
     place-items: center;
     height: 100vw;
+    width: 100vw;
     background-color: rgb(83, 82, 82);;
 }
 
 .container{
-    height: auto;
-    width: auto;
-    background:  rgb(83, 82, 82);;
-    /* background: linear-gradient(to bottom, lightgrey 10%, grey); */
-    /* border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0px 0px 30px white; */
-    /* box-shadow: inset 1px 2px 0px rgb(255 255 255/18%), inset -2px -2px 2px rgb(0 0 0/65%);  */
+    /* height: auto;
+    width: auto; */
+    width: 1040px;
+    height: 880px;
+    background:  rgb(83, 82, 82);
 }
 
-.startingPage{
+.starting-page{
     display: flex;
     position: fixed;
     top: 0;
@@ -41,11 +40,7 @@ body{
     background-color: rgb(83, 82, 82);
     justify-content: center;
     align-items: center;
-    /* font-size: 5rem; */
     flex-direction: column;
-    /* height: 300px;
-    width: 400px;
-    display: block; */
 }
 
 .gradient-border {
@@ -89,63 +84,56 @@ body{
     }
   }
 
-.startingPage h2{
+.gradient-border h2{
     font-size: 3rem;
     text-transform: uppercase;
     color: white;
     margin-left:  20px;
 }
 
-.startingPage #line{
-    height: 1px;
-    width: 100%;
-    background-color: aquamarine;
-    margin: 20px 0;
-}
-
-
-.startingPage h4{
+.gradient-border h4{
     text-align: center;
     text-transform: uppercase;
     color: white;
     font-size: 20px;
     font-weight: 400;
-    /* margin-bottom:  10px; */
 }
 
-.stroke {
+.gradient-border.gradient-underline {
     text-align: center;
     font-weight: 900;
 }
-.stroke {
+
+.gradient-underline {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
-.stroke a {
+.gradient-underline a {
     display: block;
     padding: 10px;
     text-decoration: none;
     color: #aaa;
-    /* font-weight: 800; */
     text-transform: uppercase;
     margin: 0 10px;
 }
 
-.stroke a,
-.stroke a:after,
-.stroke a:before {
+.gradient-underline a,
+.gradient-underline a:after,
+.gradient-underline a:before {
     transition: all .5s;
 }
 
-.stroke a:hover {
+.gradient-underline a:hover {
     color:white;
   }
   
-.stroke a{
+.gradient-underline a{
     position: relative;
 }
-.stroke a:after{
+
+.gradient-underline a:after{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -167,11 +155,12 @@ body{
     height: 2px;
     animation: moveGradient 4s alternate infinite;
   }
-.stroke a:hover:after {
+
+.gradient-underline a:hover:after {
     width: 100%;
   }
 
-.endGameWinner{
+.end-game-page{
     display: none;
     position: fixed;
     top: 0;
@@ -184,33 +173,28 @@ body{
     flex-direction: row;
 }
 
-.endGameDraw{
+.winner-text{
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgb(83, 82, 82);
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
 }
 
-.textEndGame h2{
+.draw-text{
+    display: none;
+}
+
+.end-game-text h2{
     font-size: 40px;
     text-transform: uppercase;
     color: white;
 }
 
-.textEndGame{
+.end-game-text{
     font-size: 3rem;
     text-transform: uppercase;
     color: white;
     margin-left:  20px;
 }
 
-.colorWinner{
+.rainbow-text{
     background: linear-gradient(
         60deg,
         hsl(224, 85%, 66%),
@@ -233,18 +217,12 @@ body{
     }
 }
 
-
-.restartGame{
+.restart-game{
     align-self: flex-end;
     margin-bottom: 40px;
 }
 
-.gameCard{
-    /* width: var(--card-width);
-    height: var(--card-height);
-    padding: 20px;
-    position: relative;
-    display: none; */
+.game-page{
     display: none;
     position: fixed;
     top: 0;
@@ -254,21 +232,18 @@ body{
     background-color: rgb(83, 82, 82);
     justify-content: center;
     align-items: center;
-    /* font-size: 5rem; */
-    /* flex-direction: column; */
-    
 }
 
- .block {
+.gradient-border-shimmer {
     position: relative;
     margin: 200px auto 0;
     width: var(--card-width);
     height: var(--card-height);
     background-color: rgb(83, 82, 82); 
 
-  } 
+} 
   
-  .block:before, .block:after {
+.gradient-border-shimmer:before, .gradient-border-shimmer:after {
     content: '';
     position: absolute;
     left: -2px;
@@ -279,10 +254,10 @@ body{
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     z-index: -1;
-    animation: steam 20s linear infinite;
-  }
+    animation: shimmer 20s linear infinite;
+}
   
-  @keyframes steam {
+@keyframes shimmer {
     0% {
       background-position: 0 0;
     }
@@ -292,9 +267,9 @@ body{
     100% {
       background-position: 0 0;
     }
-  }
+}
   
-.block:after {
+.gradient-border-shimmer:after {
     filter: blur(50px);
 }
 
@@ -302,8 +277,6 @@ body{
     width: var(--card-width);
     height: var(--card-height);
     position: absolute;
-    /* top: 50px;
-    left: 10px; */
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: center;
@@ -313,7 +286,6 @@ body{
 .cell{
     width: var(--cell-size);
     height: var(--cell-size);
-    /* box-shadow: 2px 2px 2px rgb(255 255 255/26%), -2px -2px 5px rgb(0 0 0/87%); */
     border: 4px  solid white;
     display: flex;
     justify-content: center;
@@ -384,7 +356,6 @@ body{
 .cell.circle::before,
 .cell.circle::after{
     background-color: rgb(248, 21, 108);
-    /* background-color: rgb(21, 233, 248); */
 }
 
 .board.circle .cell:not(.x):not(.circle):hover::before,
@@ -411,7 +382,6 @@ body{
 .board.circle .cell:not(.x):not(.circle):hover::after{
     width: calc(var( --mark-size) * .7);
     height: calc(var(--mark-size) * .7);
-    /* background-color: white; */
     background: rgb(83, 82, 82) ;
 }
 
@@ -435,10 +405,8 @@ body{
 .switch {
 	position: relative;
 	display: block;
-	/* vertical-align: top; */
 	width: 40px;
 	height: 14px;
-	/* padding: 3px; */
 	margin: 0 10px 10px 0;
 	background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
 	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
