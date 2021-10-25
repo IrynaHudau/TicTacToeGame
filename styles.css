@@ -209,7 +209,7 @@ body{
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;  
-      /* animation: move 35s linear infinite; */
+      animation: move 35s linear infinite;
       color: transparent;
 }
 
