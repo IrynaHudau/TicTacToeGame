@@ -206,6 +206,7 @@ body{
         hsl(134, 85%, 66%),
         hsl(179, 85%, 66%)
       );
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;  
       animation: move 35s linear infinite;
