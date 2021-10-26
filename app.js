@@ -1,16 +1,3 @@
-//const elementToResize = document.getElementById('container');
-// const heightOutput =  elementToResize.parentElement.clientWidth;
-// const widthOutput =  elementToResize.parentElement.clientHeight;
-
-// function reportWindowSize() {
-//     console.log('resized');
-//   heightOutput.textContent = window.innerHeight;
-//   widthOutput.textContent = window.innerWidth;
-// }
-
-// window.onresize = reportWindowSize;
-// window.addEventListener('resize', reportWindowSize);
-
 const playerX = 'x';
 const playerZero = 'circle';
 const winnCombination = [
