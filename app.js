@@ -105,8 +105,14 @@ const  setBoardHoverNextTurn = () => {
     }
 };
 
-restartGameButton.addEventListener('click', () => {
+restartGameButton.addEventListener('click', (e) => {
+    //event.preventDefault();
     window.location.reload();
 });
+
+// restartGameButton.addEventListener('touchstart', (e) => {
+//     event.preventDefault();
+//     window.location.reload();
+// });
 
 
