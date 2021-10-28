@@ -21,8 +21,8 @@ const endGameDrawText = document.querySelector(".draw-text");
 const cellElemenst = document.querySelectorAll('[data-cell]');
 const board = document.getElementById('board');
 const endGameMessageTextElement = document.querySelector('[data-endgame-message-text]');
+const endGameDrawTextElement = document.querySelector('[data-endgame-draw-message]');
 const restartGameButton = document.getElementById('restart-btn');
-
 
 //Select Which to play
 choose.forEach(currentChoose => {
@@ -39,11 +39,11 @@ choose.forEach(currentChoose => {
 });
 
 const clickOnCellHandler = (event) => {
+    event.preventDefault();
     const cellPos = event.target;
     const currenPlayer = currPlayersTurn ?  playerZero : playerX;
     placeMarkOnCell(cellPos, currenPlayer);
     if(checkWinner(currenPlayer)){
-        console.log('winner');
         endGame(false);
     }else if(isDraw()){
         endGame(true);
@@ -55,6 +55,7 @@ const clickOnCellHandler = (event) => {
 
 const endGame = (draw) => {
     if(draw){
+        endGameDrawTextElement.innerText = "Game Over!"
         endGameDrawText.style.display = "flex";
     }else{
         endGameMessageTextElement.innerText = `${currPlayersTurn ? "O" : "X"}!`;
@@ -81,6 +82,7 @@ const checkWinner = (currenPlayer) => {
 const startGame = () => {
     cellElemenst.forEach(cell => {
         cell.addEventListener('click', clickOnCellHandler, {once:true})
+        cell.addEventListener('touchstart', clickOnCellHandler, {once:true});
     });
     setBoardHoverNextTurn();
 };

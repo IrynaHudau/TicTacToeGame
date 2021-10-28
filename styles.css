@@ -116,7 +116,8 @@ body{
     text-decoration: none;
     color: #aaa;
     text-transform: uppercase;
-    margin: 0 10px;
+    margin: 10px 10px;
+    border:1px solid grey;
 }
 
 .gradient-underline a,
@@ -158,7 +159,9 @@ body{
 
 .gradient-underline a:hover:after {
     width: 100%;
-  }
+}
+
+
 
 .end-game-page{
     display: none;
@@ -188,10 +191,9 @@ body{
 }
 
 .end-game-text{
-    font-size: 3rem;
+    font-size: 40px;
     text-transform: uppercase;
     color: white;
-    margin-left:  20px;
 }
 
 .rainbow-text{
@@ -205,23 +207,24 @@ body{
         hsl(89, 85%, 66%),
         hsl(134, 85%, 66%),
         hsl(179, 85%, 66%)
+      
       );
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;  
-      animation: move 35s linear infinite;
+      animation: move 35s linear  infinite;
       color: transparent;
 }
 
 @keyframes move {
     to {
-      background-position: 4000vh;
+      background-position: 3000vh;
     }
 }
 
 .restart-game{
     align-self: flex-end;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .game-page{
@@ -417,6 +420,7 @@ body{
 	cursor: pointer;
 	box-sizing:content-box;
 }
+
 .switch-input {
 	position: absolute;
 	top: 0;
@@ -424,6 +428,7 @@ body{
 	opacity: 0;
 	box-sizing:content-box;
 }
+
 .switch-label {
 	position: relative;
 	display: block;
@@ -435,6 +440,7 @@ body{
 	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
 	box-sizing:content-box;
 }
+
 .switch-label:before, .switch-label:after {
 	position: absolute;
 	top: 50%;
@@ -444,12 +450,14 @@ body{
 	transition: inherit;
 	box-sizing:content-box;
 }
+
 .switch-label:before {
 	content: attr(data-off);
 	right: 4px;
 	color:black;
 	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
 }
+
 .switch-label:after {
 	content: attr(data-on);
     left: 7px;
@@ -457,6 +465,7 @@ body{
 	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
 	opacity: 0;
 }
+
 .switch-input:checked ~ .switch-label {
 	background: linear-gradient(
         60deg,
@@ -471,12 +480,15 @@ body{
       );
 	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
 }
+
 .switch-input:checked ~ .switch-label:before {
 	opacity: 0;
 }
+
 .switch-input:checked ~ .switch-label:after {
 	opacity: 1;
 }
+
 .switch-handle {
 	position: absolute;
 	top: 0px;
@@ -488,6 +500,7 @@ body{
 	border-radius: 100%;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
+
 .switch-handle:before {
 	content: "";
 	position: absolute;
@@ -501,7 +514,9 @@ body{
 	border-radius: 6px;
 	box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
 }
+
 .switch-input:checked ~ .switch-handle {
 	left: 26px;
 	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
 }
+
